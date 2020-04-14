@@ -1,11 +1,3 @@
-//
-//  Model.swift
-//  Shop
-//
-//  Created by Sasha Putsikovich on 13.04.2020.
-//  Copyright © 2020 Sasha Putsikovich. All rights reserved.
-//
-
 import Foundation
 
 struct Shop {
@@ -14,3 +6,9 @@ struct Shop {
     var price: Int
 }
    
+struct Basket {
+    var nameOfBrand: String
+    var imageName: String
+    var price: Int
+    var number: Int
+}

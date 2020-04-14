@@ -1,11 +1,3 @@
-//
-//  MainViewController.swift
-//  Shop
-//
-//  Created by Sasha Putsikovich on 13.04.2020.
-//  Copyright © 2020 Sasha Putsikovich. All rights reserved.
-//
-
 import UIKit
 
 class MainViewController: UIViewController {
@@ -23,14 +15,14 @@ class MainViewController: UIViewController {
     func addItems(){
         
 //            let newItemCarhartt = Shop(imageName: "carhartt\(i).jpg", nameOfBrand: "carhartt", price: 120*i)
-        let newItemStone1 = Shop(imageName: "stone1.jpg", nameOfBrand: "Stone Island", price: 1001)
-        let newItemStone2 = Shop(imageName: "stone2.jpg", nameOfBrand: "Stone Island", price: 100*2)
-        let newItemStone3 = Shop(imageName: "stone3.jpg", nameOfBrand: "Stone Island", price: 100*3)
-        let newItemStone4 = Shop(imageName: "stone4.jpg", nameOfBrand: "Stone Island", price: 100*4)
-        let newItemPalace1 = Shop(imageName: "palace1.jpg", nameOfBrand: "Palace", price: 50*1)
-        let newItemPalace2 = Shop(imageName: "palace2.jpg", nameOfBrand: "Palace", price: 50*2)
-        let newItemPalace3 = Shop(imageName: "palace3.jpg", nameOfBrand: "Palace", price: 50*3)
-        let newItemPalace4 = Shop(imageName: "palace4.jpg", nameOfBrand: "Palace", price: 50*4)
+        let newItemStone1 = Shop(imageName: "stone1.jpg", nameOfBrand: "Stone Island1", price: 1001)
+        let newItemStone2 = Shop(imageName: "stone2.jpg", nameOfBrand: "Stone Island2", price: 100*2)
+        let newItemStone3 = Shop(imageName: "stone3.jpg", nameOfBrand: "Stone Island3", price: 100*3)
+        let newItemStone4 = Shop(imageName: "stone4.jpg", nameOfBrand: "Stone Island4", price: 100*4)
+        let newItemPalace1 = Shop(imageName: "palace1.jpg", nameOfBrand: "Palace1", price: 50*1)
+        let newItemPalace2 = Shop(imageName: "palace2.jpg", nameOfBrand: "Palace2", price: 50*2)
+        let newItemPalace3 = Shop(imageName: "palace3.jpg", nameOfBrand: "Palace3", price: 50*3)
+        let newItemPalace4 = Shop(imageName: "palace4.jpg", nameOfBrand: "Palace4", price: 50*4)
             //shopItems.append(newItemCarhartt)
         shopItems.append(newItemStone1)
         shopItems.append(newItemStone2)
@@ -64,7 +56,7 @@ extension MainViewController: UICollectionViewDataSource{
             if let last = indexPath.last{
         let item = shopItems[last.row]
         vc.imageName = item.imageName
-        vc.price = "\(item.price)"
+        vc.price = item.price
         vc.nameOfBrand = item.nameOfBrand
             }}}
 }
