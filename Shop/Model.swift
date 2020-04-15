@@ -6,9 +6,3 @@ struct Shop {
     var price: Int
 }
    
-struct Basket {
-    var nameOfBrand: String
-    var imageName: String
-    var price: Int
-    var number: Int
-}

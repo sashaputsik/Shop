@@ -1,5 +1,5 @@
 import UIKit
-
+import CoreData
 class ItemViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
@@ -35,11 +35,29 @@ class ItemViewController: UIViewController {
     @objc func addBasket(){
         let alertController = UIAlertController(title: "Awesome!", message: "You goods added to basket", preferredStyle: .alert)
         let okeyAction = UIAlertAction(title: "Nice", style: .default) { (action) in
-            let itemToBasket = Basket(nameOfBrand: self.nameOfBrand, imageName: self.imageName, price: self.price, number: Int(self.priceStepper.value))
-            self.basketArray.append(itemToBasket)
-            print(self.basketArray)
         }
+        let segueBasketAction = UIAlertAction(title: "Basket", style: .default) { (alert) in
+            guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "Basket") else{return}
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let item = Basket(context:context)
+        item.nameOfBrand = self.nameOfBrand
+        item.totalPrice = Double(self.price)*self.priceStepper.value
+        item.number = Double(self.priceStepper.value)
+        item.imageName = imageName
+        
+        do{
+            try context.save()
+        }catch
+        let error as NSError
+        {
+            print(error)
+            }
+        print(basketArray)
         alertController.addAction(okeyAction)
+        alertController.addAction(segueBasketAction)
                present(alertController, animated: true, completion: nil)
     }
 

@@ -19,15 +19,4 @@ class BasketTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-    func reload(_ item: Basket){
-        itemImageView.image = UIImage(named: item.imageName)
-        nameOfBrandLabel.text = item.nameOfBrand
-        numberLabel.text = "\(item.number)"
-        totalPriceLabel.text = "\(item.price)"
-    }
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
 }
