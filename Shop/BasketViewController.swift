@@ -9,6 +9,19 @@ class BasketViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         print(basketArray)
+        var toolBarArray = [UIBarButtonItem]()
+        let fixebleSpace = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: self, action: nil)
+        fixebleSpace.width = 150
+        toolBarArray.append(fixebleSpace)
+        toolBarArray.append(UIBarButtonItem(title: "Order", style: .done, target: self, action: #selector(order)))
+        toolbarItems = toolBarArray
+    }
+    @objc func order(){
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "order") as? OrderViewController else {return}
+        for item in basketArray{
+            vc.totalPrice += Int(item.totalPrice)
+        }
+        show(vc, sender: self)
     }
     override func viewWillAppear(_ animated: Bool) {
        
@@ -22,6 +35,15 @@ class BasketViewController: UIViewController {
         }
         tableView.reloadData()
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let vc = segue.destination as? ItemViewController else{return}
+        if let indexPath = tableView.indexPathForSelectedRow{
+            let item = basketArray[indexPath.row]
+            vc.imageName = item.imageName!
+            vc.price = Int(item.totalPrice)/Int(item.number)
+            vc.nameOfBrand = item.nameOfBrand!
+               }}
+    
 }
 
 extension BasketViewController: UITableViewDataSource{
