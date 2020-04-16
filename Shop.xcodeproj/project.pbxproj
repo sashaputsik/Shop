@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9F1A12B42448E95200A9B1FC /* green.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1A12B32448E95200A9B1FC /* green.png */; };
-		9F1A12B72448EFA500A9B1FC /* grid.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1A12B52448EFA500A9B1FC /* grid.png */; };
-		9F1A12B82448EFA500A9B1FC /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1A12B62448EFA500A9B1FC /* menu.png */; };
+		9F1A12BA2448FA3F00A9B1FC /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1A12B92448FA3F00A9B1FC /* menu.png */; };
+		9F1A12BC2448FA4E00A9B1FC /* grid.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1A12BB2448FA4E00A9B1FC /* grid.png */; };
 		9F83DBEE2444E0DE00DEE57F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F83DBED2444E0DE00DEE57F /* AppDelegate.swift */; };
 		9F83DBF02444E0DE00DEE57F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F83DBEF2444E0DE00DEE57F /* SceneDelegate.swift */; };
 		9F83DBF52444E0DE00DEE57F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F83DBF32444E0DE00DEE57F /* Main.storyboard */; };
@@ -55,8 +55,8 @@
 
 /* Begin PBXFileReference section */
 		9F1A12B32448E95200A9B1FC /* green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green.png; sourceTree = "<group>"; };
-		9F1A12B52448EFA500A9B1FC /* grid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grid.png; sourceTree = "<group>"; };
-		9F1A12B62448EFA500A9B1FC /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
+		9F1A12B92448FA3F00A9B1FC /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
+		9F1A12BB2448FA4E00A9B1FC /* grid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grid.png; sourceTree = "<group>"; };
 		9F83DBEA2444E0DE00DEE57F /* Shop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F83DBED2444E0DE00DEE57F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9F83DBEF2444E0DE00DEE57F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -187,11 +187,11 @@
 				9FE5451624479E8600DAC6BF /* jacket.png */,
 				9FE5451524479E8600DAC6BF /* sweatshirt.png */,
 				9FE5451424479E8600DAC6BF /* pants.png */,
-				9F1A12B52448EFA500A9B1FC /* grid.png */,
-				9F1A12B62448EFA500A9B1FC /* menu.png */,
 				9FE545202447A0A600DAC6BF /* check-list.png */,
 				9F1A12B32448E95200A9B1FC /* green.png */,
 				9FE5451E24479FC500DAC6BF /* shopping-basket-2.png */,
+				9F1A12B92448FA3F00A9B1FC /* menu.png */,
+				9F1A12BB2448FA4E00A9B1FC /* grid.png */,
 				9FE5451724479E8600DAC6BF /* tshirt.png */,
 			);
 			path = Resource;
@@ -256,24 +256,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F83DC1F2444E92600DEE57F /* stoneP1.jpg in Resources */,
-				9F1A12B72448EFA500A9B1FC /* grid.png in Resources */,
 				9FE5450324472B9200DAC6BF /* stoneP6.jpg in Resources */,
 				9FE544F6244726F600DAC6BF /* palaceT1.jpg in Resources */,
 				9FE544FA24472AD000DAC6BF /* palaceSS2.jpg in Resources */,
 				9F83DC0E2444E92000DEE57F /* palaceJ4.jpg in Resources */,
 				9FE5450524472B9200DAC6BF /* stoneP2.jpg in Resources */,
 				9F83DC1A2444E92600DEE57F /* palaceJ2.jpg in Resources */,
-				9F1A12B82448EFA500A9B1FC /* menu.png in Resources */,
 				9FE5450824472B9F00DAC6BF /* stoneP4.jpg in Resources */,
 				9FE5451824479E8600DAC6BF /* pants.png in Resources */,
 				9FE544F3244726F600DAC6BF /* palaceT4.jpg in Resources */,
 				9FE545212447A0A600DAC6BF /* check-list.png in Resources */,
 				9F83DC1C2444E92600DEE57F /* stoneJ2.jpg in Resources */,
 				9FE544F5244726F600DAC6BF /* palaceT3.jpg in Resources */,
+				9F1A12BC2448FA4E00A9B1FC /* grid.png in Resources */,
 				9F83DC1D2444E92600DEE57F /* palaceJ3.jpg in Resources */,
 				9FE5451924479E8600DAC6BF /* sweatshirt.png in Resources */,
 				9FE5451F24479FC500DAC6BF /* shopping-basket-2.png in Resources */,
 				9F83DBFD2444E0E000DEE57F /* LaunchScreen.storyboard in Resources */,
+				9F1A12BA2448FA3F00A9B1FC /* menu.png in Resources */,
 				9FE5451B24479E8600DAC6BF /* tshirt.png in Resources */,
 				9FE5450624472B9300DAC6BF /* stoneP5.jpg in Resources */,
 				9FE544F824472AC000DAC6BF /* palaceSS1.jpg in Resources */,

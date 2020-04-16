@@ -42,6 +42,7 @@ class BasketViewController: UIViewController {
             vc.imageName = item.imageName!
             vc.price = Int(item.totalPrice)/Int(item.number)
             vc.nameOfBrand = item.nameOfBrand!
+            vc.isHiddenToolBar = false
                }}
     
 }

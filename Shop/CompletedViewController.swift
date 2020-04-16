@@ -10,10 +10,14 @@ import UIKit
 
 class CompletedViewController: UIViewController {
 
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Completed"
+        backButton.layer.borderColor  = UIColor.black.cgColor
+        backButton.layer.borderWidth = 1
+        backButton.layer.cornerRadius = backButton.frame.height/2
         navigationController?.isToolbarHidden = true
         imageView.frame = CGRect(x: 150, y: 800, width: 100, height: 100)
         imageView.image = UIImage(named: "green.png")

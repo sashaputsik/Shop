@@ -10,10 +10,14 @@ class ItemViewController: UIViewController {
     var imageName = ""
     var nameOfBrand = ""
     var price = 0
+    var isHiddenToolBar = false
     var basketArray = [Basket]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.isToolbarHidden = false
+        if isHiddenToolBar{
+            navigationController?.isToolbarHidden = false}else{
+            navigationController?.isToolbarHidden = true
+        }
         imageView.image = UIImage(named: imageName)
         nameOfBrandLabel.text = nameOfBrand
         priceLabel.text = "\(price)"

@@ -11,7 +11,6 @@ class MainViewController: UIViewController {
         mainCollectionView.delegate = self
         mainCollectionView.dataSource = self
         addItems()
-        print(shopItems)
         var toolBarArray = [UIBarButtonItem]()
         navigationController?.isToolbarHidden = false
         navigationController?.toolbar.tintColor = .black
@@ -151,6 +150,7 @@ extension MainViewController: UICollectionViewDataSource{
         vc.imageName = item.imageName
         vc.price = item.price
         vc.nameOfBrand = item.nameOfBrand
+        vc.isHiddenToolBar = true   
             }}}
 }
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{

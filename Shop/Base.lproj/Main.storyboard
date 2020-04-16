@@ -99,7 +99,7 @@
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="shopping-basket-2.png" id="gdu-04-cqr">
-                            <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="HbR-Rb-len" kind="show" id="pE8-2g-roh"/>
                             </connections>
@@ -206,9 +206,9 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="teC-4c-nhA">
-                                            <rect key="frame" x="8" y="8" width="63" height="28"/>
+                                            <rect key="frame" x="8" y="8" width="287" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -272,9 +272,12 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NCm-nW-ziD">
-                                <rect key="frame" x="0.0" y="618" width="375" height="49"/>
+                                <rect key="frame" x="0.0" y="615" width="375" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Back to Main View"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Back to All staff"/>
                                 <connections>
                                     <segue destination="fcu-pP-OXb" kind="unwind" unwindAction="backToMainView:" id="aoJ-Du-cT6"/>
                                 </connections>
@@ -284,6 +287,7 @@
                         <viewLayoutGuide key="safeArea" id="aQf-iX-6bL"/>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="NCm-nW-ziD" id="wBI-pK-Ymo"/>
                         <outlet property="imageView" destination="Cu8-g3-9rr" id="sDm-pD-iql"/>
                     </connections>
                 </viewController>
@@ -353,6 +357,6 @@
         <image name="shopping-basket-2.png" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dHC-ai-TiP"/>
+        <segue reference="aKy-60-8PF"/>
     </inferredMetricsTieBreakers>
 </document>
