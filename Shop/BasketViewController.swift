@@ -9,15 +9,20 @@ class BasketViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         print(basketArray)
+        navigationController?.isToolbarHidden = false
         var toolBarArray = [UIBarButtonItem]()
         let fixebleSpace = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: self, action: nil)
         fixebleSpace.width = 150
         toolBarArray.append(fixebleSpace)
         toolBarArray.append(UIBarButtonItem(title: "Order", style: .done, target: self, action: #selector(order)))
         toolbarItems = toolBarArray
+        let tapScreen = UITapGestureRecognizer(target: self, action: #selector(keyboardIsHidden))
+    }
+    @objc func keyboardIsHidden(){
+
     }
     @objc func order(){
-        guard let vc = storyboard?.instantiateViewController(withIdentifier: "order") as? OrderViewController else {return}
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "info") as? InfoViewController else {return}
         for item in basketArray{
             vc.totalPrice += Int(item.totalPrice)
         }

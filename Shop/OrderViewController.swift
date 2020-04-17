@@ -9,7 +9,9 @@
 import UIKit
 import CoreData
 class OrderViewController: UIViewController {
-
+    var name = ""
+    var address = ""
+    var phoneNumber = ""
     @IBOutlet weak var totalPriceLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     var basketArray = [Basket]()
@@ -48,7 +50,8 @@ class OrderViewController: UIViewController {
     @objc func completedOrder(){
         let alertController = UIAlertController(title: "Точчно", message: "Вы уверены в своем заказе", preferredStyle: .alert)
         let yes = UIAlertAction(title: "Yes", style: .default) { (alert) in
-            guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "completed") else{return}
+            guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "completed") as? CompletedViewController else{return}
+            vc.totalPrice = self.totalPrice
             let appDeleagate = UIApplication.shared.delegate as! AppDelegate
             let context = appDeleagate.persistentContainer.viewContext
             for item in self.basketArray{
@@ -61,6 +64,9 @@ class OrderViewController: UIViewController {
             let error as NSError{
                 print(error)
             }
+            vc.name = self.name
+            vc.phoneNumber = self.phoneNumber
+            vc.address = self.address
             self.show(vc, sender: nil)
         }
         let no = UIAlertAction(title: "No", style: .cancel, handler: nil)
