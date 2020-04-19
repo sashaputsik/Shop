@@ -11,15 +11,16 @@ class BasketViewController: UIViewController {
         print(basketArray)
         navigationController?.isToolbarHidden = false
         var toolBarArray = [UIBarButtonItem]()
-        let fixebleSpace = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: self, action: nil)
+        let fixebleSpace = UIBarButtonItem(barButtonSystemItem: .fixedSpace,
+                                           target: self,
+                                           action: nil)
         fixebleSpace.width = 150
         toolBarArray.append(fixebleSpace)
-        toolBarArray.append(UIBarButtonItem(title: "Order", style: .done, target: self, action: #selector(order)))
+        toolBarArray.append(UIBarButtonItem(title: "Order",
+                                            style: .done,
+                                            target: self,
+                                            action: #selector(order)))
         toolbarItems = toolBarArray
-        let tapScreen = UITapGestureRecognizer(target: self, action: #selector(keyboardIsHidden))
-    }
-    @objc func keyboardIsHidden(){
-
     }
     @objc func order(){
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "info") as? InfoViewController else {return}
@@ -29,7 +30,6 @@ class BasketViewController: UIViewController {
         show(vc, sender: self)
     }
     override func viewWillAppear(_ animated: Bool) {
-       
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         let fetch = Basket.fetchRequest() as NSFetchRequest<Basket>
@@ -40,7 +40,8 @@ class BasketViewController: UIViewController {
         }
         tableView.reloadData()
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue,
+                          sender: Any?) {
         guard let vc = segue.destination as? ItemViewController else{return}
         if let indexPath = tableView.indexPathForSelectedRow{
             let item = basketArray[indexPath.row]
@@ -49,16 +50,17 @@ class BasketViewController: UIViewController {
             vc.nameOfBrand = item.nameOfBrand!
             vc.isHiddenToolBar = false
                }}
-    
 }
 
 extension BasketViewController: UITableViewDataSource{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView,
+                   numberOfRowsInSection section: Int) -> Int {
         return basketArray.count
     }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? BasketTableViewCell{
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "cell",
+                                                    for: indexPath) as? BasketTableViewCell{
             let item = basketArray[indexPath.row]
             cell.nameOfBrandLabel.text = item.nameOfBrand
             if let imageName = item.imageName{
@@ -69,16 +71,16 @@ extension BasketViewController: UITableViewDataSource{
         }
         return UITableViewCell()
     }
-    
-    
-    
 }
 extension BasketViewController: UITableViewDelegate{
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView,
+                   heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 125.0
     }
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView,
+                   commit editingStyle: UITableViewCell.EditingStyle,
+                   forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             let context = appDelegate.persistentContainer.viewContext
@@ -95,7 +97,9 @@ extension BasketViewController: UITableViewDelegate{
             }
         }
     }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+    func tableView(_ tableView: UITableView,
+                   didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath,
+                              animated: true)
     }
 }

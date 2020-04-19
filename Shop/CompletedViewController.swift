@@ -25,17 +25,27 @@ class CompletedViewController: UIViewController {
         backButton.layer.borderWidth = 1
         backButton.layer.cornerRadius = backButton.frame.height/2
         navigationController?.isToolbarHidden = true
-        imageView.frame = CGRect(x: 150, y: 800, width: 100, height: 100)
+        imageView.frame = CGRect(x: 150,
+                                 y: 800,
+                                 width: 100,
+                                 height: 100)
         imageView.image = UIImage(named: "green.png")
         UIView.animate(withDuration: 1) {
-            self.imageView.frame = CGRect(x: 150, y: 400, width: 100, height: 100)
+            self.imageView.frame = CGRect(x: 150,
+                                          y: 400,
+                                          width: 100,
+                                          height: 100)
         }
         let urlString = "https://jsonplaceholder.typicode.com/posts"
         guard let url = URL(string: urlString) else{ return}
              let session = URLSession.shared
              var request = URLRequest(url: url)
-        let array = ["address":"\(address)","name":"\(name)","phoneNumber":"\(phoneNumber)","totalprice":"\(totalPrice)"]
-        guard let httpBody = try? JSONSerialization.data(withJSONObject: array, options: []) else{return}
+        let array = ["address":"\(address)",
+                    "name":"\(name)",
+                    "phoneNumber":"\(phoneNumber)",
+                    "totalprice":"\(totalPrice)"]
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: array,
+                                                         options: []) else{return}
         request.httpBody = httpBody
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -48,5 +58,4 @@ class CompletedViewController: UIViewController {
             }
         }.resume()
          }
-
     }

@@ -23,26 +23,36 @@ class ItemViewController: UIViewController {
         priceLabel.text = "\(price)"
         totalPriceLabel.text = "\(price)"
         var items = [UIBarButtonItem]()
-        let fixebleSpace = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: self, action: nil)
+        let fixebleSpace = UIBarButtonItem(barButtonSystemItem: .fixedSpace,
+                                           target: self,
+                                           action: nil)
         fixebleSpace.width = 120
-        let addBasketItem = UIBarButtonItem(title: "Add to basket", style: .done, target: self, action: #selector(addBasket))
+        let addBasketItem = UIBarButtonItem(title: "Add to basket",
+                                            style: .done, target: self,
+                                            action: #selector(addBasket))
         addBasketItem.tintColor = .red
         items.append(fixebleSpace)
         items.append(addBasketItem)
         toolbarItems = items
-        priceStepper.addTarget(self, action: #selector(totalPriceChange), for: .valueChanged)    }
+        priceStepper.addTarget(self, action: #selector(totalPriceChange),
+                               for: .valueChanged)
+    }
     @objc func totalPriceChange(){
         totalPriceLabel.text = "\(price*Int(priceStepper.value))"
-
     }
-   
     @objc func addBasket(){
-        let alertController = UIAlertController(title: "Awesome!", message: "You goods added to basket", preferredStyle: .alert)
-        let okeyAction = UIAlertAction(title: "Nice", style: .default) { (action) in
+        let alertController = UIAlertController(title: "Awesome!",
+                                                message: "You goods added to basket",
+                                                preferredStyle: .alert)
+        let okeyAction = UIAlertAction(title: "Nice",
+                                       style: .default) { (action) in
+            self.navigationController?.popToRootViewController(animated: true)
         }
-        let segueBasketAction = UIAlertAction(title: "Basket", style: .default) { (alert) in
+        let segueBasketAction = UIAlertAction(title: "Basket",
+                                              style: .default) { (alert) in
             guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "Basket") else{return}
-            self.navigationController?.pushViewController(vc, animated: true)
+            self.navigationController?.pushViewController(vc,
+                                                          animated: true)
         }
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
@@ -51,7 +61,6 @@ class ItemViewController: UIViewController {
         item.totalPrice = Double(self.price)*self.priceStepper.value
         item.number = Double(self.priceStepper.value)
         item.imageName = imageName
-        
         do{
             try context.save()
         }catch
@@ -64,5 +73,4 @@ class ItemViewController: UIViewController {
         alertController.addAction(segueBasketAction)
                present(alertController, animated: true, completion: nil)
     }
-
 }

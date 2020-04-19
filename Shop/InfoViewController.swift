@@ -16,12 +16,10 @@ class InfoViewController: UIViewController {
     var totalPrice = 0
     override func viewDidLoad() {
         super.viewDidLoad()
-
-       let tapScreen = UITapGestureRecognizer(target: self, action: #selector(keyboardIsHidden))
-       
+        let tapScreen = UITapGestureRecognizer(target: self,
+                                              action: #selector(keyboardIsHidden))
         view.addGestureRecognizer(tapScreen)
     }
-    
     @objc func keyboardIsHidden(){
         nameTextField.resignFirstResponder()
         addressTextField.resignFirstResponder()
@@ -34,12 +32,10 @@ class InfoViewController: UIViewController {
             vc.name = nameTextField.text!
             vc.address = addressTextField.text!
             vc.phoneNumber = phoneNumberTextField.text!
-            show(vc, sender: nil)
+            show(vc,
+                 sender: nil)
         }
         else{
-            
         }
     }
-    
-
 }

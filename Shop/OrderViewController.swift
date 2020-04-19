@@ -26,14 +26,17 @@ class OrderViewController: UIViewController {
         tableView.dataSource = self
         navigationController?.isToolbarHidden = false
         var toolBarArray = [UIBarButtonItem]()
-        let fixebleSpace = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: self, action: nil)
+        let fixebleSpace = UIBarButtonItem(barButtonSystemItem: .fixedSpace,
+                                           target: self,
+                                           action: nil)
         fixebleSpace.width = 140
         toolBarArray.append(fixebleSpace)
-        toolBarArray.append(UIBarButtonItem(title: "Completed", style: .done, target: self, action: #selector(completedOrder)))
+        toolBarArray.append(UIBarButtonItem(title: "Completed",
+                                            style: .done, target: self,
+                                            action: #selector(completedOrder)))
         toolbarItems = toolBarArray
     }
     override func viewWillAppear(_ animated: Bool) {
-       
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         let fetch = Basket.fetchRequest() as NSFetchRequest<Basket>
@@ -42,14 +45,14 @@ class OrderViewController: UIViewController {
         } catch let error as NSError {
             print(error)
         }
-        
-        
         tableView.reloadData()
     }
-    
     @objc func completedOrder(){
-        let alertController = UIAlertController(title: "Точчно", message: "Вы уверены в своем заказе", preferredStyle: .alert)
-        let yes = UIAlertAction(title: "Yes", style: .default) { (alert) in
+        let alertController = UIAlertController(title: "Точчно",
+                                                message: "Вы уверены в своем заказе",
+                                                preferredStyle: .alert)
+        let yes = UIAlertAction(title: "Yes",
+                                style: .default) { (alert) in
             guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "completed") as? CompletedViewController else{return}
             vc.totalPrice = self.totalPrice
             let appDeleagate = UIApplication.shared.delegate as! AppDelegate
@@ -69,31 +72,35 @@ class OrderViewController: UIViewController {
             vc.address = self.address
             self.show(vc, sender: nil)
         }
-        let no = UIAlertAction(title: "No", style: .cancel, handler: nil)
+        let no = UIAlertAction(title: "No",
+                               style: .cancel) {(alert) in
+            guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "Basket") else {return}
+            self.navigationController?.popToRootViewController(animated: true)
+        }
         alertController.addAction(yes)
         alertController.addAction(no)
         present(alertController, animated: true, completion: nil)
     }
-
 }
 extension OrderViewController: UITableViewDataSource{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView,
+                   numberOfRowsInSection section: Int) -> Int {
         return basketArray.count
     }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell",
+                                                 for: indexPath)
         let item = basketArray[indexPath.row]
         cell.textLabel?.text = item.nameOfBrand
         cell.detailTextLabel!.text = "\(Int(item.totalPrice))"
         totalPriceLabel.text = "Total price: \(totalPrice)"
         return cell
     }
-    
-    
 }
 extension OrderViewController: UITableViewDelegate{
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView,
+                   heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50.0
     }
 }
