@@ -331,12 +331,21 @@
                                     <segue destination="fcu-pP-OXb" kind="unwind" unwindAction="backToMainView:" id="aoJ-Du-cT6"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A3g-df-E88">
+                                <rect key="frame" x="119" y="474" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="adasads:" destination="sYt-dR-sui" eventType="touchUpInside" id="DrV-zW-na1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="aQf-iX-6bL"/>
                     </view>
                     <connections>
                         <outlet property="backButton" destination="NCm-nW-ziD" id="wBI-pK-Ymo"/>
+                        <outlet property="bbbb" destination="A3g-df-E88" id="fSb-Fv-cT1"/>
                         <outlet property="imageView" destination="Cu8-g3-9rr" id="sDm-pD-iql"/>
                     </connections>
                 </viewController>

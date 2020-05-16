@@ -8,6 +8,7 @@ class MainViewController: UIViewController {
     var isCell = true
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         mainCollectionView.delegate = self
         mainCollectionView.dataSource = self
         addItems()

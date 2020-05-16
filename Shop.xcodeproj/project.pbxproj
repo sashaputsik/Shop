@@ -119,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				9F83DBEC2444E0DE00DEE57F /* Shop */,
+				9F83DBF92444E0E000DEE57F /* Assets.xcassets */,
 				9F83DBEB2444E0DE00DEE57F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -134,24 +135,11 @@
 		9F83DBEC2444E0DE00DEE57F /* Shop */ = {
 			isa = PBXGroup;
 			children = (
-				9FE5450B24479D5800DAC6BF /* Resource */,
+				9FD2F8202470046800B21801 /* AppFiles */,
+				9FD2F825247004E400B21801 /* Models */,
 				9F83DC0A2444E91200DEE57F /* photos */,
-				9F83DBED2444E0DE00DEE57F /* AppDelegate.swift */,
-				9F83DBEF2444E0DE00DEE57F /* SceneDelegate.swift */,
-				9F83DBF32444E0DE00DEE57F /* Main.storyboard */,
-				9F83DC082444E2D200DEE57F /* MainViewController.swift */,
-				9F83DC252444F78500DEE57F /* ItemViewController.swift */,
-				9F9E96A724463D6900C4B214 /* BasketViewController.swift */,
-				9F8BB8DE2449D14F00AAFC3A /* InfoViewController.swift */,
-				9FE5450924472F3F00DAC6BF /* OrderViewController.swift */,
-				9FE545222447A23700DAC6BF /* CompletedViewController.swift */,
-				9F83DC062444E17D00DEE57F /* MainCollectionViewCell.swift */,
-				9F9E96A924464D5400C4B214 /* BasketTableViewCell.swift */,
-				9F83DC232444E9A400DEE57F /* Model.swift */,
-				9F83DBF92444E0E000DEE57F /* Assets.xcassets */,
-				9F83DBFB2444E0E000DEE57F /* LaunchScreen.storyboard */,
-				9F83DBFE2444E0E000DEE57F /* Info.plist */,
-				9F83DBF62444E0DE00DEE57F /* Shop.xcdatamodeld */,
+				9FE5450B24479D5800DAC6BF /* Resource */,
+				9FD2F824247004CB00B21801 /* Storyboards */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -182,6 +170,114 @@
 				9FE5450724472B9F00DAC6BF /* stoneP4.jpg */,
 			);
 			path = photos;
+			sourceTree = "<group>";
+		};
+		9FD2F8202470046800B21801 /* AppFiles */ = {
+			isa = PBXGroup;
+			children = (
+				9FD2F82C2470058000B21801 /* Views */,
+				9FD2F822247004AD00B21801 /* Extensions */,
+				9FD2F8212470048B00B21801 /* Base */,
+				9F83DBED2444E0DE00DEE57F /* AppDelegate.swift */,
+				9F83DBEF2444E0DE00DEE57F /* SceneDelegate.swift */,
+				9F83DBFB2444E0E000DEE57F /* LaunchScreen.storyboard */,
+				9F83DBF62444E0DE00DEE57F /* Shop.xcdatamodeld */,
+				9F83DBFE2444E0E000DEE57F /* Info.plist */,
+			);
+			name = AppFiles;
+			sourceTree = "<group>";
+		};
+		9FD2F8212470048B00B21801 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				9F83DC232444E9A400DEE57F /* Model.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		9FD2F822247004AD00B21801 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9FD2F824247004CB00B21801 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				9F83DBF32444E0DE00DEE57F /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		9FD2F825247004E400B21801 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9FD2F82B2470054800B21801 /* OrderViewController */,
+				9FD2F82A2470053500B21801 /* CompletedViewController */,
+				9FD2F8292470052600B21801 /* InfoViewController */,
+				9FD2F8282470051300B21801 /* BasketViewController */,
+				9FD2F827247004FB00B21801 /* ItemViewController */,
+				9FD2F826247004EC00B21801 /* MainViewController */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9FD2F826247004EC00B21801 /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9F83DC082444E2D200DEE57F /* MainViewController.swift */,
+			);
+			path = MainViewController;
+			sourceTree = "<group>";
+		};
+		9FD2F827247004FB00B21801 /* ItemViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9F83DC252444F78500DEE57F /* ItemViewController.swift */,
+			);
+			path = ItemViewController;
+			sourceTree = "<group>";
+		};
+		9FD2F8282470051300B21801 /* BasketViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9F9E96A724463D6900C4B214 /* BasketViewController.swift */,
+			);
+			path = BasketViewController;
+			sourceTree = "<group>";
+		};
+		9FD2F8292470052600B21801 /* InfoViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9F8BB8DE2449D14F00AAFC3A /* InfoViewController.swift */,
+			);
+			path = InfoViewController;
+			sourceTree = "<group>";
+		};
+		9FD2F82A2470053500B21801 /* CompletedViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9FE545222447A23700DAC6BF /* CompletedViewController.swift */,
+			);
+			path = CompletedViewController;
+			sourceTree = "<group>";
+		};
+		9FD2F82B2470054800B21801 /* OrderViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9FE5450924472F3F00DAC6BF /* OrderViewController.swift */,
+			);
+			path = OrderViewController;
+			sourceTree = "<group>";
+		};
+		9FD2F82C2470058000B21801 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9F83DC062444E17D00DEE57F /* MainCollectionViewCell.swift */,
+				9F9E96A924464D5400C4B214 /* BasketTableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		9FE5450B24479D5800DAC6BF /* Resource */ = {
