@@ -9,7 +9,7 @@ class MainCollectionViewCell: UICollectionViewCell {
     func reload(_ shopItem: Shop){
         imageView.image = UIImage(named:"\(shopItem.imageName)")
         label.text = shopItem.nameOfBrand
-        priceLabel.text = "\(shopItem.price)"
+        priceLabel.text = "$\(shopItem.price)"
     }
    
 }

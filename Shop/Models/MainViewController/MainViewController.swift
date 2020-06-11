@@ -3,7 +3,9 @@ import UIKit
 class MainViewController: UIViewController {
 
     @IBOutlet weak var mainCollectionView: UICollectionView!
-    @IBOutlet weak var cellReload: UIBarButtonItem!
+    
+    @IBOutlet weak var basketButton: UIButton!
+    @IBOutlet weak var cellReload: UIButton!
     var shopItems = [Shop]()
     var isCell = true
     override func viewDidLoad() {
@@ -38,7 +40,12 @@ class MainViewController: UIViewController {
                                  action:#selector(sweatShirt))
         toolBarArray.append(ss)
         toolbarItems = toolBarArray
-        cellReload.image = UIImage(named: "grid.png")
+        cellReload.setImage(UIImage(named: "grid.png"), for: .normal)
+        basketButton.addTarget(self, action: #selector(openBasket), for: .touchUpInside)
+    }
+    @objc func openBasket(){
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "Basket") else{return}
+        show(vc, sender: self)
     }
     func addItems(){
         for i in 1...4{
@@ -64,17 +71,18 @@ class MainViewController: UIViewController {
           
         }
     }
-    @IBAction func openMenu(_ sender: UIBarButtonItem) {
+    
+    @IBAction func cellReloadAction(_ sender: UIButton) {
         isCell = !isCell
         UIView.animate(withDuration: 1) {
             self.mainCollectionView.reloadData()
         }
         if isCell{
-        cellReload.image = UIImage(named: "grid.png")
+            cellReload.setImage(UIImage(named: "grid.png"), for: .normal)
                    
         }
         else{
-        cellReload.image = UIImage(named: "menu.png")
+            cellReload.setImage(UIImage(named: "menu.png"), for: .normal)
                }
     }
     @objc func tShirt(){
@@ -121,71 +129,4 @@ class MainViewController: UIViewController {
     @IBAction func backToMainView(_ unwind: UIStoryboardSegue) {
         guard let vc = unwind.source as? CompletedViewController else{return}
     }
-    }
-
-extension MainViewController: UICollectionViewDataSource{
-    func collectionView(_ collectionView: UICollectionView,
-                        numberOfItemsInSection section: Int) -> Int {
-        return shopItems.count
-       }
-    func collectionView(_ collectionView: UICollectionView,
-                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell",
-                                                         for: indexPath) as? MainCollectionViewCell{
-        let item = shopItems[indexPath.row]
-        cell.reload(item)
-            if isCell{
-                cell.imageView.frame = CGRect(x: 0,
-                                              y: 0,
-                                              width: 160,
-                                              height: 155)
-                cell.label.frame = CGRect(x: 8,
-                                          y: 163,
-                                          width: 144,
-                                          height: 21)
-                cell.priceLabel.frame = CGRect(x: 118,
-                                               y: 8,
-                                               width: 42,
-                                               height: 21)
-            }
-            else{
-                cell.imageView.frame = CGRect(x: 0,
-                                              y: 0,
-                                              width: 93,
-                                              height: 70)
-                cell.label.frame = CGRect(x: 101,
-                                          y: 25,
-                                          width: 185,
-                                          height: 21)
-                cell.priceLabel.frame = CGRect(x: 308,
-                                               y: 8,
-                                               width: 42,
-                                               height: 21)
-            }
-            return cell
-        }
-        return UICollectionViewCell()
-    }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-           guard let vc = segue.destination as? ItemViewController else{return}
-        if let indexPath = mainCollectionView.indexPathsForSelectedItems{
-            if let last = indexPath.last{
-        let item = shopItems[last.row]
-        vc.imageName = item.imageName
-        vc.price = item.price
-        vc.nameOfBrand = item.nameOfBrand
-        vc.isHiddenToolBar = true   
-            }}}
-}
-extension MainViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if isCell{
-            return CGSize(width: 160, height: 186)
-        }
-        else{
-            return CGSize(width: 358, height: 70)
-        }
-          }
     }
