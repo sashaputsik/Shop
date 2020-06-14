@@ -24,8 +24,11 @@ class InfoViewController: UIViewController {
         addressTextField.delegate = self
         phoneNumberTextField.delegate = self
     }
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.isToolbarHidden = false
+    }
     @IBAction func goToOrderView(_ sender: UIButton) {
-        if nameTextField.text != "" && addressTextField.text != ""{
+        if nameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) != "" && addressTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) != ""{
             guard let vc = storyboard?.instantiateViewController(withIdentifier: "order") as? OrderViewController else {return}
             vc.totalPrice = totalPrice
             vc.name = nameTextField.text!
@@ -37,6 +40,7 @@ class InfoViewController: UIViewController {
         else{
             let alertController = UIAlertController(title: "Message", message: "Empty field. Заполните их!", preferredStyle: .actionSheet)
             let okeyAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alertController.view.tintColor = .black
             alertController.addAction(okeyAction)
             present(alertController, animated: true, completion: nil)
         }

@@ -36,6 +36,9 @@
 		9FC8AF2024927A99006D7A27 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC8AF1F24927A99006D7A27 /* CollectionView.swift */; };
 		9FC8AF2524928293006D7A27 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FC8AF2424928293006D7A27 /* menu.png */; };
 		9FC8AF27249282D5006D7A27 /* grid.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FC8AF26249282D5006D7A27 /* grid.png */; };
+		9FCD2E632496553A0005CF10 /* AllOrderTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCD2E622496553A0005CF10 /* AllOrderTableView.swift */; };
+		9FCD2E66249659020005CF10 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FCD2E65249659020005CF10 /* arrow.png */; };
+		9FCD2E6824965BD80005CF10 /* checklist.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FCD2E6724965BD80005CF10 /* checklist.png */; };
 		9FE544F3244726F600DAC6BF /* palaceT4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9FE544EF244726F500DAC6BF /* palaceT4.jpg */; };
 		9FE544F4244726F600DAC6BF /* palaceT2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9FE544F0244726F500DAC6BF /* palaceT2.jpg */; };
 		9FE544F5244726F600DAC6BF /* palaceT3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9FE544F1244726F500DAC6BF /* palaceT3.jpg */; };
@@ -90,6 +93,9 @@
 		9FC8AF1F24927A99006D7A27 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		9FC8AF2424928293006D7A27 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 		9FC8AF26249282D5006D7A27 /* grid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grid.png; sourceTree = "<group>"; };
+		9FCD2E622496553A0005CF10 /* AllOrderTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllOrderTableView.swift; sourceTree = "<group>"; };
+		9FCD2E65249659020005CF10 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
+		9FCD2E6724965BD80005CF10 /* checklist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checklist.png; sourceTree = "<group>"; };
 		9FE544EF244726F500DAC6BF /* palaceT4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = palaceT4.jpg; sourceTree = "<group>"; };
 		9FE544F0244726F500DAC6BF /* palaceT2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = palaceT2.jpg; sourceTree = "<group>"; };
 		9FE544F1244726F500DAC6BF /* palaceT3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = palaceT3.jpg; sourceTree = "<group>"; };
@@ -202,18 +208,34 @@
 			path = MailViewController;
 			sourceTree = "<group>";
 		};
-		9FD2F8202470046800B21801 /* AppFiles */ = {
+		9FCD2E602496551A0005CF10 /* OrderViewController */ = {
 			isa = PBXGroup;
 			children = (
-				9FE5450B24479D5800DAC6BF /* Resource */,
-				9FD2F82C2470058000B21801 /* Views */,
-				9FD2F822247004AD00B21801 /* Extensions */,
-				9FD2F8212470048B00B21801 /* Base */,
+				9FCD2E622496553A0005CF10 /* AllOrderTableView.swift */,
+			);
+			path = OrderViewController;
+			sourceTree = "<group>";
+		};
+		9FCD2E642496569A0005CF10 /* Files */ = {
+			isa = PBXGroup;
+			children = (
 				9F83DBED2444E0DE00DEE57F /* AppDelegate.swift */,
 				9F83DBEF2444E0DE00DEE57F /* SceneDelegate.swift */,
 				9F83DBFB2444E0E000DEE57F /* LaunchScreen.storyboard */,
 				9F83DBF62444E0DE00DEE57F /* Shop.xcdatamodeld */,
 				9F83DBFE2444E0E000DEE57F /* Info.plist */,
+			);
+			name = Files;
+			sourceTree = "<group>";
+		};
+		9FD2F8202470046800B21801 /* AppFiles */ = {
+			isa = PBXGroup;
+			children = (
+				9FCD2E642496569A0005CF10 /* Files */,
+				9FE5450B24479D5800DAC6BF /* Resource */,
+				9FD2F82C2470058000B21801 /* Views */,
+				9FD2F822247004AD00B21801 /* Extensions */,
+				9FD2F8212470048B00B21801 /* Base */,
 			);
 			name = AppFiles;
 			sourceTree = "<group>";
@@ -229,6 +251,7 @@
 		9FD2F822247004AD00B21801 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				9FCD2E602496551A0005CF10 /* OrderViewController */,
 				9F5B942924964D2400DFF55E /* InfoViewContoroller */,
 				9F5B942224951CA800DFF55E /* BasketViewController */,
 				9FC8AF2124927A9F006D7A27 /* MailViewController */,
@@ -317,6 +340,8 @@
 		9FE5450B24479D5800DAC6BF /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				9FCD2E6724965BD80005CF10 /* checklist.png */,
+				9FCD2E65249659020005CF10 /* arrow.png */,
 				9F83DC0A2444E91200DEE57F /* photos */,
 				9FE5451524479E8600DAC6BF /* sweatshirt.png */,
 				9FC8AF1C249279F6006D7A27 /* jacket.png */,
@@ -416,6 +441,7 @@
 				9FE544FC24472ADA00DAC6BF /* palaceSS3.jpg in Resources */,
 				9FE5450424472B9200DAC6BF /* stoneP3.jpg in Resources */,
 				9F83DBFA2444E0E000DEE57F /* Assets.xcassets in Resources */,
+				9FCD2E6824965BD80005CF10 /* checklist.png in Resources */,
 				9FC8AF2524928293006D7A27 /* menu.png in Resources */,
 				9F1A12B42448E95200A9B1FC /* green.png in Resources */,
 				9FE544FE24472ADE00DAC6BF /* palaceSS4.jpg in Resources */,
@@ -423,6 +449,7 @@
 				9F83DC1E2444E92600DEE57F /* stoneJ1.jpg in Resources */,
 				9F83DC0F2444E92000DEE57F /* stoneSS1.jpg in Resources */,
 				9FE544F4244726F600DAC6BF /* palaceT2.jpg in Resources */,
+				9FCD2E66249659020005CF10 /* arrow.png in Resources */,
 				9F83DBF52444E0DE00DEE57F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -447,6 +474,7 @@
 				9F83DBF82444E0DE00DEE57F /* Shop.xcdatamodeld in Sources */,
 				9F9E96A824463D6900C4B214 /* BasketViewController.swift in Sources */,
 				9FE545232447A23700DAC6BF /* CompletedViewController.swift in Sources */,
+				9FCD2E632496553A0005CF10 /* AllOrderTableView.swift in Sources */,
 				9F8BB8DF2449D14F00AAFC3A /* InfoViewController.swift in Sources */,
 				9F83DC092444E2D200DEE57F /* MainViewController.swift in Sources */,
 			);

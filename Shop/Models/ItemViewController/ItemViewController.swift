@@ -60,6 +60,7 @@ class ItemViewController: UIViewController {
             print(error)
             }
         print(basketArray)
+        alertController.view.tintColor = .black
         alertController.addAction(okeyAction)
         alertController.addAction(segueBasketAction)
                present(alertController, animated: true, completion: nil)

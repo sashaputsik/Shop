@@ -54,9 +54,12 @@ class OrderViewController: UIViewController {
         let yes = UIAlertAction(title: "Yes",
                                 style: .default) { (alert) in
             guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "completed") as? CompletedViewController else{return}
-            vc.totalPrice = self.totalPrice
             let appDeleagate = UIApplication.shared.delegate as! AppDelegate
             let context = appDeleagate.persistentContainer.viewContext
+                                    for item in self.basketArray{
+                                        vc.basketArray.append(["\(item.nameOfBrand!)":item.price])
+                                }
+            vc.totalPrice = self.totalPrice
             for item in self.basketArray{
             context.delete(item)
             }
@@ -77,30 +80,9 @@ class OrderViewController: UIViewController {
             guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "Basket") else {return}
             self.navigationController?.popToRootViewController(animated: true)
         }
+        alertController.view.tintColor = .black
         alertController.addAction(yes)
         alertController.addAction(no)
         present(alertController, animated: true, completion: nil)
-    }
-}
-extension OrderViewController: UITableViewDataSource{
-    func tableView(_ tableView: UITableView,
-                   numberOfRowsInSection section: Int) -> Int {
-        return basketArray.count
-    }
-    func tableView(_ tableView: UITableView,
-                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell",
-                                                 for: indexPath)
-        let item = basketArray[indexPath.row]
-        cell.textLabel?.text = item.nameOfBrand
-        cell.detailTextLabel!.text = "\(Int(item.price))"
-        totalPriceLabel.text = "Total price: \(totalPrice)"
-        return cell
-    }
-}
-extension OrderViewController: UITableViewDelegate{
-    func tableView(_ tableView: UITableView,
-                   heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50.0
     }
 }
