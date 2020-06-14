@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yVH-MN-dZA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nZG-gX-ewq">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -54,7 +54,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Oi-q6-6Ne" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2600.8000000000002" y="363.86806596701655"/>
+            <point key="canvasLocation" x="4438" y="20"/>
         </scene>
         <!--All Staff-->
         <scene sceneID="2f6-j4-bBd">
@@ -64,19 +64,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X2a-iR-z7j">
-                                <rect key="frame" x="334" y="20" width="41" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="shopping-basket-2.png"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DRc-hw-CvR">
-                                <rect key="frame" x="11" y="23" width="24" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="grid.png"/>
-                                <connections>
-                                    <action selector="cellReloadAction:" destination="yVH-MN-dZA" eventType="touchUpInside" id="Gdg-DY-25K"/>
-                                </connections>
-                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7xz-Af-A79">
                                 <rect key="frame" x="0.0" y="60" width="375" height="607"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -132,23 +119,27 @@
                     </view>
                     <navigationItem key="navigationItem" title="All Staff" id="IcB-oD-k8c">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="menu.png" id="C89-pb-TPM">
+                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                             <connections>
-                                <action selector="openMenu:" destination="yVH-MN-dZA" id="5q9-ty-zbL"/>
+                                <action selector="cellReloadAction:" destination="yVH-MN-dZA" id="Pnh-9J-B5K"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="shopping-basket-2.png" id="gdu-04-cqr">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="HbR-Rb-len" kind="show" id="w5Y-SZ-PvR"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="basketButton" destination="X2a-iR-z7j" id="c6p-RY-1oU"/>
-                        <outlet property="cellReload" destination="DRc-hw-CvR" id="EMC-0j-RUt"/>
+                        <outlet property="basketButton" destination="gdu-04-cqr" id="GUt-g7-Knt"/>
+                        <outlet property="cellReload" destination="C89-pb-TPM" id="G7X-eQ-0LK"/>
                         <outlet property="mainCollectionView" destination="7xz-Af-A79" id="tcx-vh-IsI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cPn-v6-o7b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1668" y="-329.68515742128938"/>
+            <point key="canvasLocation" x="2607.1999999999998" y="-329.68515742128938"/>
         </scene>
         <!--Basket-->
         <scene sceneID="Buk-w3-uro">
@@ -159,7 +150,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zhp-mq-a2S">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="96" width="375" height="571"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="125" id="3Ny-QP-owX" customClass="BasketTableViewCell" customModule="Shop" customModuleProvider="target">
@@ -180,13 +171,6 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bO5-Np-Td2">
-                                                    <rect key="frame" x="124" y="93" width="88" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="daF-hi-jBa">
                                                     <rect key="frame" x="287" y="93" width="88" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -199,8 +183,7 @@
                                         <connections>
                                             <outlet property="itemImageView" destination="Vws-u6-sC9" id="Eud-CA-NUt"/>
                                             <outlet property="nameOfBrandLabel" destination="xN3-A5-yg9" id="p0R-pM-5fH"/>
-                                            <outlet property="numberLabel" destination="bO5-Np-Td2" id="p2q-cT-OvV"/>
-                                            <outlet property="totalPriceLabel" destination="daF-hi-jBa" id="w8i-44-1L6"/>
+                                            <outlet property="priceLabel" destination="daF-hi-jBa" id="w8i-44-1L6"/>
                                             <segue destination="fA7-mQ-HIa" kind="show" id="dHC-ai-TiP"/>
                                         </connections>
                                     </tableViewCell>
@@ -223,7 +206,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kvZ-9a-DhU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1668" y="345.87706146926541"/>
+            <point key="canvasLocation" x="3506" y="21"/>
         </scene>
         <!--Order View Controller-->
         <scene sceneID="Nmh-9e-UEb">
@@ -294,7 +277,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GCf-NC-sZj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3396" y="364"/>
+            <point key="canvasLocation" x="5343" y="20"/>
         </scene>
         <!--Completed View Controller-->
         <scene sceneID="5yZ-H7-8GT">
@@ -331,72 +314,90 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="STX-jS-WTy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="fcu-pP-OXb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3396" y="1060"/>
+            <point key="canvasLocation" x="6202" y="20"/>
         </scene>
         <!--Item View Controller-->
         <scene sceneID="ICK-DZ-CBK">
             <objects>
                 <viewController id="fA7-mQ-HIa" customClass="ItemViewController" customModule="Shop" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A29-1Z-FVc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="palaceSS2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Sou-OM-Xkm">
-                                <rect key="frame" x="16" y="103" width="343" height="264"/>
+                                <rect key="frame" x="0.0" y="96" width="375" height="339"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iVy-7z-rXe">
-                                <rect key="frame" x="168" y="435" width="39" height="21"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X3C-eh-nEK">
+                                <rect key="frame" x="16" y="588" width="343" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                <state key="normal" title="ADD BASKET">
+                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zV0-X9-Hfp">
+                                <rect key="frame" x="16" y="459" width="343" height="105"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">
+English brand with quality. Awesome cut and beautiful eyelash. the whole Norod will look only at you and your style. delivery is at our expense.</string>
+                                <fontDescription key="fontDescription" name="LaoSangamMN" family="Lao Sangam MN" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NameOf brand" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4BU-r6-5eh">
-                                <rect key="frame" x="131" y="388" width="113" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iVy-7z-rXe">
+                                <rect key="frame" x="166" y="443" width="193" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="6lh-WZ-5sB">
-                                <rect key="frame" x="140" y="509" width="94" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </stepper>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="totalPrice" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t1Z-sj-boq">
-                                <rect key="frame" x="151" y="549" width="73" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="1" green="0.98890821910000004" blue="0.72613127690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="X2q-u7-Wp9"/>
                     </view>
                     <navigationItem key="navigationItem" id="GPx-eo-NTe"/>
                     <connections>
+                        <outlet property="basketButton" destination="X3C-eh-nEK" id="aQq-tW-SSD"/>
                         <outlet property="imageView" destination="Sou-OM-Xkm" id="o4V-58-T8U"/>
-                        <outlet property="nameOfBrandLabel" destination="4BU-r6-5eh" id="ZVp-bO-had"/>
                         <outlet property="priceLabel" destination="iVy-7z-rXe" id="yh5-iG-Ixo"/>
-                        <outlet property="priceStepper" destination="6lh-WZ-5sB" id="saI-zN-fMX"/>
-                        <outlet property="totalPriceLabel" destination="t1Z-sj-boq" id="ehk-EY-Sng"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5CF-sD-Uku" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2602.4000000000001" y="-321.58920539730138"/>
+            <point key="canvasLocation" x="3504.8000000000002" y="-681.40929535232385"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="IGb-aP-mEb">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nZG-gX-ewq" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="lcU-fd-4fL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="1" green="0.98890821910000004" blue="0.72613127690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="1" green="0.98890821910000004" blue="0.72613127690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="yVH-MN-dZA" kind="relationship" relationship="rootViewController" id="sS1-iz-pic"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eyN-HC-kXn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1668" y="-329.68515742128938"/>
         </scene>
     </scenes>
     <resources>
         <image name="check-list.png" width="192" height="192"/>
-        <image name="grid.png" width="24" height="24"/>
         <image name="menu.png" width="24" height="24"/>
         <image name="palaceJ2.jpg" width="1280" height="896"/>
         <image name="palaceSS2.jpg" width="1280" height="896"/>
         <image name="shopping-basket-2.png" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="aKy-60-8PF"/>
+        <segue reference="dHC-ai-TiP"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -3,49 +3,18 @@ import UIKit
 class MainViewController: UIViewController {
 
     @IBOutlet weak var mainCollectionView: UICollectionView!
+    @IBOutlet weak var cellReload: UIBarButtonItem!
     
-    @IBOutlet weak var basketButton: UIButton!
-    @IBOutlet weak var cellReload: UIButton!
+    @IBOutlet weak var basketButton: UIBarButtonItem!
     var shopItems = [Shop]()
     var isCell = true
     override func viewDidLoad() {
         super.viewDidLoad()
-    
         mainCollectionView.delegate = self
         mainCollectionView.dataSource = self
         addItems()
-        var toolBarArray = [UIBarButtonItem]()
-        navigationController?.isToolbarHidden = false
-        navigationController?.toolbar.tintColor = .black
-        toolBarArray.append(UIBarButtonItem(image: UIImage(named: "tshirt.png"),
-                                            style: .done, target: self,
-                                            action: #selector(tShirt)))
-        toolBarArray.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
-                                            target: self,
-                                            action: nil))
-        toolBarArray.append(UIBarButtonItem(image: UIImage(named: "jacket.png"),
-                                            style: .done, target: self,
-                                            action: #selector(jacket)))
-        toolBarArray.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
-                                            target: self,
-                                            action: nil))
-        toolBarArray.append(UIBarButtonItem(image: UIImage(named: "pants.png"),
-                                            style: .done, target: self,
-                                            action: #selector(pants)))
-        toolBarArray.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
-                                            target: self,
-                                            action: nil))
-        let ss = UIBarButtonItem(image: UIImage(named: "sweatshirt.png"),
-                                 style: .done, target: self,
-                                 action:#selector(sweatShirt))
-        toolBarArray.append(ss)
-        toolbarItems = toolBarArray
-        cellReload.setImage(UIImage(named: "grid.png"), for: .normal)
-        basketButton.addTarget(self, action: #selector(openBasket), for: .touchUpInside)
-    }
-    @objc func openBasket(){
-        guard let vc = storyboard?.instantiateViewController(withIdentifier: "Basket") else{return}
-        show(vc, sender: self)
+        toolBarSettigns()
+        cellReload.image = UIImage(named: "grid.png")
     }
     func addItems(){
         for i in 1...4{
@@ -72,17 +41,17 @@ class MainViewController: UIViewController {
         }
     }
     
-    @IBAction func cellReloadAction(_ sender: UIButton) {
+    @IBAction func cellReloadAction(_ sender: UIBarButtonItem) {
         isCell = !isCell
         UIView.animate(withDuration: 1) {
             self.mainCollectionView.reloadData()
         }
         if isCell{
-            cellReload.setImage(UIImage(named: "grid.png"), for: .normal)
+            cellReload.image = UIImage(named: "grid.png")
                    
         }
         else{
-            cellReload.setImage(UIImage(named: "menu.png"), for: .normal)
+            cellReload.image = UIImage(named: "menu.png")
                }
     }
     @objc func tShirt(){
@@ -128,5 +97,33 @@ class MainViewController: UIViewController {
         }
     @IBAction func backToMainView(_ unwind: UIStoryboardSegue) {
         guard let vc = unwind.source as? CompletedViewController else{return}
+    }
+    func toolBarSettigns(){
+        var toolBarArray = [UIBarButtonItem]()
+        navigationController?.isToolbarHidden = false
+        navigationController?.toolbar.tintColor = .black
+        toolBarArray.append(UIBarButtonItem(image: UIImage(named: "tshirt.png"),
+                                           style: .done, target: self,
+                                           action: #selector(tShirt)))
+        toolBarArray.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
+                                           target: self,
+                                           action: nil))
+        toolBarArray.append(UIBarButtonItem(image: UIImage(named: "jacket.png"),
+                                           style: .done, target: self,
+                                           action: #selector(jacket)))
+        toolBarArray.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
+                                           target: self,
+                                           action: nil))
+        toolBarArray.append(UIBarButtonItem(image: UIImage(named: "pants.png"),
+                                           style: .done, target: self,
+                                           action: #selector(pants)))
+        toolBarArray.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
+                                           target: self,
+                                           action: nil))
+        let ss = UIBarButtonItem(image: UIImage(named: "sweatshirt.png"),
+                                style: .done, target: self,
+                                action:#selector(sweatShirt))
+        toolBarArray.append(ss)
+        toolbarItems = toolBarArray
     }
     }
