@@ -26,6 +26,9 @@ class ItemViewController: UIViewController {
         basketButton.addTarget(self, action: #selector(addBasket), for: .touchUpInside)
         frameAndLayer()
     }
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.isToolbarHidden = false
+    }
     @objc func addBasket(){
         let alertController = UIAlertController(title: "Awesome!",
                                                 message: "You goods added to basket",

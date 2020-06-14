@@ -7,20 +7,11 @@ class BasketViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isToolbarHidden = false
+        navigationController?.toolbar.backgroundColor = #colorLiteral(red: 1, green: 0.9889082191, blue: 0.7261312769, alpha: 1)
+        navigationController?.toolbar.barTintColor = #colorLiteral(red: 1, green: 0.9889082191, blue: 0.7261312769, alpha: 1)
         tableView.delegate = self
         tableView.dataSource = self
-        print(basketArray)
-        var toolBarArray = [UIBarButtonItem]()
-        let fixebleSpace = UIBarButtonItem(barButtonSystemItem: .fixedSpace,
-                                           target: self,
-                                           action: nil)
-        fixebleSpace.width = 150
-        toolBarArray.append(fixebleSpace)
-        toolBarArray.append(UIBarButtonItem(title: "Order",
-                                            style: .done,
-                                            target: self,
-                                            action: #selector(order)))
-        toolbarItems = toolBarArray
+        toolBarSettings()
     }
     @objc func order(){
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "info") as? InfoViewController else {return}
@@ -66,5 +57,22 @@ class BasketViewController: UIViewController {
             vc.nameOfBrand = item.nameOfBrand!
             vc.isHiddenToolBar = false
                }
+    }
+    func toolBarSettings(){
+        let font = UIFont(name: "Futura", size: 20.0)
+        let attrebure = [NSAttributedString.Key.font: font]
+        var toolBarArray = [UIBarButtonItem]()
+        let fixebleSpace = UIBarButtonItem(barButtonSystemItem: .fixedSpace,
+                                                  target: self,
+                                                  action: nil)
+        fixebleSpace.width = 140
+        toolBarArray.append(fixebleSpace)
+        let checkout = UIBarButtonItem(title: "Checkout",
+                                        style: .done,
+                                        target: self,
+                                        action: #selector(order))
+        checkout.setTitleTextAttributes(attrebure, for: .normal)
+        toolBarArray.append(checkout)
+        toolbarItems = toolBarArray
     }
 }

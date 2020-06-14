@@ -93,7 +93,7 @@ extension OrderViewController: UITableViewDataSource{
                                                  for: indexPath)
         let item = basketArray[indexPath.row]
         cell.textLabel?.text = item.nameOfBrand
-        cell.detailTextLabel!.text = "\(Int(item.totalPrice))"
+        cell.detailTextLabel!.text = "\(Int(item.price))"
         totalPriceLabel.text = "Total price: \(totalPrice)"
         return cell
     }

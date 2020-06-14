@@ -14,16 +14,15 @@ class InfoViewController: UIViewController {
     @IBOutlet weak var addressTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
     var totalPrice = 0
+    @IBOutlet weak var completedOrderButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let tapScreen = UITapGestureRecognizer(target: self,
-                                              action: #selector(keyboardIsHidden))
-        view.addGestureRecognizer(tapScreen)
-    }
-    @objc func keyboardIsHidden(){
-        nameTextField.resignFirstResponder()
-        addressTextField.resignFirstResponder()
-        phoneNumberTextField.resignFirstResponder()
+        frameAndLayer() 
+        navigationController?.isToolbarHidden = true
+        nameTextField.delegate = self
+        addressTextField.delegate = self
+        phoneNumberTextField.delegate = self
     }
     @IBAction func goToOrderView(_ sender: UIButton) {
         if nameTextField.text != "" && addressTextField.text != ""{
@@ -36,6 +35,16 @@ class InfoViewController: UIViewController {
                  sender: nil)
         }
         else{
+            let alertController = UIAlertController(title: "Message", message: "Empty field. Заполните их!", preferredStyle: .actionSheet)
+            let okeyAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alertController.addAction(okeyAction)
+            present(alertController, animated: true, completion: nil)
         }
+    }
+   func frameAndLayer(){
+    completedOrderButton.layer.cornerRadius = 10
+    completedOrderButton.layer.shadowOpacity = 0.5
+    completedOrderButton.layer.shadowOffset = CGSize(width: 1, height: 1)
+    completedOrderButton.layer.shadowColor = UIColor.lightGray.cgColor
     }
 }

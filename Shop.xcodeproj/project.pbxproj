@@ -10,6 +10,7 @@
 		9F1A12B42448E95200A9B1FC /* green.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1A12B32448E95200A9B1FC /* green.png */; };
 		9F5B942424951CC500DFF55E /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5B942324951CC500DFF55E /* TableView.swift */; };
 		9F5B94282495287600DFF55E /* add (1).png in Resources */ = {isa = PBXBuildFile; fileRef = 9F5B94272495287600DFF55E /* add (1).png */; };
+		9F5B942B24964D3800DFF55E /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5B942A24964D3800DFF55E /* TextField.swift */; };
 		9F83DBEE2444E0DE00DEE57F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F83DBED2444E0DE00DEE57F /* AppDelegate.swift */; };
 		9F83DBF02444E0DE00DEE57F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F83DBEF2444E0DE00DEE57F /* SceneDelegate.swift */; };
 		9F83DBF52444E0DE00DEE57F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F83DBF32444E0DE00DEE57F /* Main.storyboard */; };
@@ -61,6 +62,7 @@
 		9F1A12B32448E95200A9B1FC /* green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green.png; sourceTree = "<group>"; };
 		9F5B942324951CC500DFF55E /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		9F5B94272495287600DFF55E /* add (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add (1).png"; sourceTree = "<group>"; };
+		9F5B942A24964D3800DFF55E /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		9F83DBEA2444E0DE00DEE57F /* Shop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F83DBED2444E0DE00DEE57F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9F83DBEF2444E0DE00DEE57F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +129,14 @@
 				9F5B942324951CC500DFF55E /* TableView.swift */,
 			);
 			path = BasketViewController;
+			sourceTree = "<group>";
+		};
+		9F5B942924964D2400DFF55E /* InfoViewContoroller */ = {
+			isa = PBXGroup;
+			children = (
+				9F5B942A24964D3800DFF55E /* TextField.swift */,
+			);
+			path = InfoViewContoroller;
 			sourceTree = "<group>";
 		};
 		9F83DBE12444E0DE00DEE57F = {
@@ -219,6 +229,7 @@
 		9FD2F822247004AD00B21801 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				9F5B942924964D2400DFF55E /* InfoViewContoroller */,
 				9F5B942224951CA800DFF55E /* BasketViewController */,
 				9FC8AF2124927A9F006D7A27 /* MailViewController */,
 			);
@@ -426,6 +437,7 @@
 				9F83DC262444F78600DEE57F /* ItemViewController.swift in Sources */,
 				9FE5450A24472F3F00DAC6BF /* OrderViewController.swift in Sources */,
 				9F9E96AA24464D5400C4B214 /* BasketTableViewCell.swift in Sources */,
+				9F5B942B24964D3800DFF55E /* TextField.swift in Sources */,
 				9F5B942424951CC500DFF55E /* TableView.swift in Sources */,
 				9F83DBEE2444E0DE00DEE57F /* AppDelegate.swift in Sources */,
 				9F83DC072444E17D00DEE57F /* MainCollectionViewCell.swift in Sources */,

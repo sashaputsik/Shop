@@ -15,7 +15,7 @@ extension BasketViewController: UITableViewDataSource{
             cell.nameOfBrandLabel.text = item.nameOfBrand
             if let imageName = item.imageName{
             cell.itemImageView.image = UIImage(named: imageName)}
-            cell.priceLabel.text = "\(Int(item.price))"
+            cell.priceLabel.text = "Price: $\(Int(item.price))"
             return cell
         }
         return UITableViewCell()
