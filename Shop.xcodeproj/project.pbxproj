@@ -32,6 +32,7 @@
 		9F8BB8DF2449D14F00AAFC3A /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8BB8DE2449D14F00AAFC3A /* InfoViewController.swift */; };
 		9F9E96A824463D6900C4B214 /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9E96A724463D6900C4B214 /* BasketViewController.swift */; };
 		9F9E96AA24464D5400C4B214 /* BasketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9E96A924464D5400C4B214 /* BasketTableViewCell.swift */; };
+		9FBC625A249A6AF400C0652B /* MainConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBC6259249A6AF400C0652B /* MainConfig.swift */; };
 		9FC8AF1D249279F6006D7A27 /* jacket.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FC8AF1C249279F6006D7A27 /* jacket.png */; };
 		9FC8AF2024927A99006D7A27 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC8AF1F24927A99006D7A27 /* CollectionView.swift */; };
 		9FC8AF2524928293006D7A27 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FC8AF2424928293006D7A27 /* menu.png */; };
@@ -89,6 +90,7 @@
 		9F8BB8DE2449D14F00AAFC3A /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		9F9E96A724463D6900C4B214 /* BasketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
 		9F9E96A924464D5400C4B214 /* BasketTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketTableViewCell.swift; sourceTree = "<group>"; };
+		9FBC6259249A6AF400C0652B /* MainConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainConfig.swift; sourceTree = "<group>"; };
 		9FC8AF1C249279F6006D7A27 /* jacket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jacket.png; sourceTree = "<group>"; };
 		9FC8AF1F24927A99006D7A27 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		9FC8AF2424928293006D7A27 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
@@ -200,6 +202,14 @@
 			path = photos;
 			sourceTree = "<group>";
 		};
+		9FBC625B249A6AF800C0652B /* Main View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9FBC6259249A6AF400C0652B /* MainConfig.swift */,
+			);
+			path = "Main View Controller";
+			sourceTree = "<group>";
+		};
 		9FC8AF2124927A9F006D7A27 /* MailViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -243,6 +253,7 @@
 		9FD2F8212470048B00B21801 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				9FBC625B249A6AF800C0652B /* Main View Controller */,
 				9F83DC232444E9A400DEE57F /* Model.swift */,
 			);
 			path = Base;
@@ -461,6 +472,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FBC625A249A6AF400C0652B /* MainConfig.swift in Sources */,
 				9F83DC262444F78600DEE57F /* ItemViewController.swift in Sources */,
 				9FE5450A24472F3F00DAC6BF /* OrderViewController.swift in Sources */,
 				9F9E96AA24464D5400C4B214 /* BasketTableViewCell.swift in Sources */,

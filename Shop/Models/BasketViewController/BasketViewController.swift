@@ -1,6 +1,6 @@
 import UIKit
 import CoreData
-final class BasketViewController: UIViewController {
+class BasketViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     public var basketArray = [Basket]()
@@ -58,7 +58,7 @@ final class BasketViewController: UIViewController {
             vc.isHiddenToolBar = false
                }
     }
-    private func toolBarSettings(){
+    final private func toolBarSettings(){
         let font = UIFont(name: "Futura", size: 20.0)
         let attrebure = [NSAttributedString.Key.font: font]
         var toolBarArray = [UIBarButtonItem]()
@@ -71,7 +71,6 @@ final class BasketViewController: UIViewController {
                                         style: .done,
                                         target: self,
                                         action: #selector(order))
-        checkout.setTitleTextAttributes(attrebure, for: .normal)
         toolBarArray.append(checkout)
         toolbarItems = toolBarArray
     }
