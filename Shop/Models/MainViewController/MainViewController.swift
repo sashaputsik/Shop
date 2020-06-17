@@ -1,13 +1,13 @@
 import UIKit
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
 
     @IBOutlet weak var mainCollectionView: UICollectionView!
     @IBOutlet weak var cellReload: UIBarButtonItem!
     
     @IBOutlet weak var basketButton: UIBarButtonItem!
-    var shopItems = [Shop]()
-    var isCell = true
+    public var shopItems = [Shop]()
+    public var isCell = true
     override func viewDidLoad() {
         super.viewDidLoad()
         mainCollectionView.delegate = self
@@ -16,7 +16,7 @@ class MainViewController: UIViewController {
         toolBarSettigns()
         cellReload.image = UIImage(named: "grid.png")
     }
-    func addItems(){
+    final private func addItems(){
         for i in 1...4{
         let newItemPalace = Shop(imageName: "palaceT\(i).jpg", nameOfBrand: "Palace T\(i)", price: 50*1)
         shopItems.append(newItemPalace)}
@@ -54,7 +54,7 @@ class MainViewController: UIViewController {
             cellReload.image = UIImage(named: "menu.png")
                }
     }
-    @objc func tShirt(){
+    @objc final private func tShirt(){
         title = "T-Shirt"
         shopItems.removeAll()
         for i in 1...4{
@@ -62,7 +62,7 @@ class MainViewController: UIViewController {
         shopItems.append(newItemPalace)}
         mainCollectionView.reloadData()
     }
-    @objc func pants(){
+    @objc final private func pants(){
         title = "Pants"
         shopItems.removeAll()
         for i in 1...6{
@@ -71,7 +71,7 @@ class MainViewController: UIViewController {
         }
         mainCollectionView.reloadData()
       }
-    @objc func sweatShirt(){
+    @objc final private func sweatShirt(){
         title = "Sweatshirts"
         shopItems.removeAll()
         let newItemStone1 = Shop(imageName: "stoneSS1.jpg", nameOfBrand: "Stone Island SS", price: 100*2)
@@ -82,7 +82,7 @@ class MainViewController: UIViewController {
         shopItems.append(newItemStone1)
         mainCollectionView.reloadData()
       }
-    @objc func jacket(){
+    @objc final private func jacket(){
         title = "Jacket"
         shopItems.removeAll()
         for i in 1...4{
@@ -98,7 +98,7 @@ class MainViewController: UIViewController {
     @IBAction func backToMainView(_ unwind: UIStoryboardSegue) {
         guard let vc = unwind.source as? CompletedViewController else{return}
     }
-    func toolBarSettigns(){
+    final private func toolBarSettigns(){
         var toolBarArray = [UIBarButtonItem]()
         navigationController?.isToolbarHidden = false
         navigationController?.toolbar.tintColor = .black

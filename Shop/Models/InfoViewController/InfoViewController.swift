@@ -1,21 +1,12 @@
-//
-//  InfoViewController.swift
-//  Shop
-//
-//  Created by Sasha Putsikovich on 17.04.2020.
-//  Copyright © 2020 Sasha Putsikovich. All rights reserved.
-//
-
 import UIKit
 
-class InfoViewController: UIViewController {
+final class InfoViewController: UIViewController {
 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var addressTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
-    var totalPrice = 0
+    public var totalPrice = 0
     @IBOutlet weak var completedOrderButton: UIButton!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         frameAndLayer() 
@@ -45,7 +36,7 @@ class InfoViewController: UIViewController {
             present(alertController, animated: true, completion: nil)
         }
     }
-   func frameAndLayer(){
+   private func frameAndLayer(){
     completedOrderButton.layer.cornerRadius = 10
     completedOrderButton.layer.shadowOpacity = 0.5
     completedOrderButton.layer.shadowOffset = CGSize(width: 1, height: 1)

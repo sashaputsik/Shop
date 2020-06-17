@@ -5,11 +5,11 @@ class ItemViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var basketButton: UIButton!
-    var imageName = ""
-    var nameOfBrand = ""
-    var price: Int?
-    var isHiddenToolBar = false
-    var basketArray = [Basket]()
+    public var imageName = ""
+    public var nameOfBrand = ""
+    public var price: Int?
+    public var isHiddenToolBar = false
+    public var basketArray = [Basket]()
     override func viewDidLoad() {
         super.viewDidLoad()
         if isHiddenToolBar{
@@ -29,10 +29,10 @@ class ItemViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         navigationController?.isToolbarHidden = false
     }
-    @objc func addBasket(){
+    @objc private func addBasket(){
         let alertController = UIAlertController(title: "Awesome!",
                                                 message: "You goods added to basket",
-                                                preferredStyle: .alert)
+                                                preferredStyle: .actionSheet)
         let okeyAction = UIAlertAction(title: "Nice",
                                        style: .default) { (action) in
             self.navigationController?.popToRootViewController(animated: true)
@@ -59,13 +59,14 @@ class ItemViewController: UIViewController {
         {
             print(error)
             }
-        print(basketArray)
+        alertController.view.backgroundColor = #colorLiteral(red: 1, green: 0.9889082191, blue: 0.7261312769, alpha: 1)
+        alertController.view.layer.cornerRadius = 0
         alertController.view.tintColor = .black
         alertController.addAction(okeyAction)
         alertController.addAction(segueBasketAction)
-               present(alertController, animated: true, completion: nil)
+        present(alertController, animated: true, completion: nil)
     }
-    func frameAndLayer(){
+   private func frameAndLayer(){
         basketButton.layer.cornerRadius = 5
         basketButton.layer.shadowOpacity = 0.5
         basketButton.layer.shadowOffset = CGSize(width: 1, height: 1)

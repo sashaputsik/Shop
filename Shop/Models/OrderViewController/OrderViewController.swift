@@ -1,22 +1,15 @@
-//
-//  OrderViewController.swift
-//  Shop
-//
-//  Created by Sasha Putsikovich on 15.04.2020.
-//  Copyright © 2020 Sasha Putsikovich. All rights reserved.
-//
-
-import UIKit
 import CoreData
-class OrderViewController: UIViewController {
-    var name = ""
-    var address = ""
-    var phoneNumber = ""
+import UIKit
+
+final class OrderViewController: UIViewController {
+    public var name = ""
+    public var address = ""
+    public var phoneNumber = ""
     @IBOutlet weak var totalPriceLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    var basketArray = [Basket]()
-    var totalPrice = 0
-    var index = 0
+    public var basketArray = [Basket]()
+    public var totalPrice = 0
+    public var index = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Order"
@@ -48,9 +41,9 @@ class OrderViewController: UIViewController {
         tableView.reloadData()
     }
     @objc func completedOrder(){
-        let alertController = UIAlertController(title: "Точчно",
+        let alertController = UIAlertController(title: "Точно",
                                                 message: "Вы уверены в своем заказе",
-                                                preferredStyle: .alert)
+                                                preferredStyle: .actionSheet)
         let yes = UIAlertAction(title: "Yes",
                                 style: .default) { (alert) in
             guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "completed") as? CompletedViewController else{return}
@@ -81,6 +74,8 @@ class OrderViewController: UIViewController {
             self.navigationController?.popToRootViewController(animated: true)
         }
         alertController.view.tintColor = .black
+        alertController.view.layer.cornerRadius = 0
+        alertController.view.backgroundColor = #colorLiteral(red: 1, green: 0.9889082191, blue: 0.7261312769, alpha: 1)
         alertController.addAction(yes)
         alertController.addAction(no)
         present(alertController, animated: true, completion: nil)

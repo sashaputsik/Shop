@@ -1,23 +1,14 @@
-//
-//  CompletedViewController.swift
-//  Shop
-//
-//  Created by Sasha Putsikovich on 15.04.2020.
-//  Copyright © 2020 Sasha Putsikovich. All rights reserved.
-//
-
 import UIKit
 
-class CompletedViewController: UIViewController {
-
+final class CompletedViewController: UIViewController {
     @IBOutlet weak var backButton: UIButton!
-    var nameOfBrand = ""
-    var totalPrice = 0
-    var number = 0
-    var name = ""
-    var address = ""
-    var phoneNumber = ""
-    var basketArray = [[String: Any]]()
+    public var nameOfBrand = ""
+    public var totalPrice = 0
+    public var number = 0
+    public var name = ""
+    public var address = ""
+    public var phoneNumber = ""
+    public var basketArray = [[String: Any]]()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,7 +20,7 @@ class CompletedViewController: UIViewController {
         pushJson()
     }
    
-    func pushJson(){
+    private func pushJson(){
         let urlString = "https://jsonplaceholder.typicode.com/posts"
         guard let url = URL(string: urlString) else{ return}
              let session = URLSession.shared
@@ -37,7 +28,7 @@ class CompletedViewController: UIViewController {
         let array = ["address":"\(address)",
                     "name":"\(name)",
                     "phoneNumber":"\(phoneNumber)",
-            "totalprice":"\(totalPrice)", "order":basketArray] as [String : Any]
+            "totalprice":"\(totalPrice)", "order": basketArray] as [String : Any]
         guard let httpBody = try? JSONSerialization.data(withJSONObject: array,
                                                          options: []) else{return}
         request.httpBody = httpBody
@@ -52,7 +43,7 @@ class CompletedViewController: UIViewController {
             }
         }.resume()
     }
-    func frameAndLayer(){
+   private func frameAndLayer(){
         backButton.layer.cornerRadius = 10
         backButton.layer.shadowOpacity = 0.5
         backButton.layer.shadowOffset = CGSize(width: 1, height: 1)

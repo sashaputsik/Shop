@@ -1,9 +1,9 @@
 import UIKit
 import CoreData
-class BasketViewController: UIViewController {
+final class BasketViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    var basketArray = [Basket]()
+    public var basketArray = [Basket]()
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isToolbarHidden = false
@@ -58,7 +58,7 @@ class BasketViewController: UIViewController {
             vc.isHiddenToolBar = false
                }
     }
-    func toolBarSettings(){
+    private func toolBarSettings(){
         let font = UIFont(name: "Futura", size: 20.0)
         let attrebure = [NSAttributedString.Key.font: font]
         var toolBarArray = [UIBarButtonItem]()
