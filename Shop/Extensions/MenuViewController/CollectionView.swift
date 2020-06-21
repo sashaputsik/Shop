@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-extension MainViewController: UICollectionViewDataSource{
+extension MenuViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
         return shopItems.count
@@ -61,7 +61,7 @@ extension MainViewController: UICollectionViewDataSource{
         vc.isHiddenToolBar = true
             }}}
 }
-extension MainViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
+extension MenuViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {

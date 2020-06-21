@@ -1,22 +1,22 @@
 import UIKit
 import CoreData
-
+import Firebase
+import SwiftKeychainWrapper
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        let s = UIApplication.shared.delegate as! AppDelegate
-        s.aa()
+        FirebaseApp.configure()
+        if KeychainWrapper.standard.hasValue(forKey: "uid") {
+            let s = UIStoryboard(name: "Main", bundle: nil)
+            let vc = s.instantiateViewController(withIdentifier: "MenuView") 
+            let nav = UINavigationController(rootViewController: vc)
+            window?.rootViewController = nav
+            window?.makeKeyAndVisible()
+        }
         return true
-    }
-    func aa(){
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let rootView = storyboard.instantiateViewController(withIdentifier: "completed")
-        let nav = UINavigationController(rootViewController: rootView)
-        window?.rootViewController = nav
     }
     // MARK: UISceneSession Lifecycle
 

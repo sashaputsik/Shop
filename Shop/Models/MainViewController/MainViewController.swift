@@ -1,129 +1,58 @@
 import UIKit
+import FirebaseAuth
+import SwiftKeychainWrapper
+class MainViewController: UIViewController {
 
-final class MainViewController: UIViewController {
-
-    @IBOutlet weak var mainCollectionView: UICollectionView!
-    @IBOutlet weak var cellReload: UIBarButtonItem!
-    
-    @IBOutlet weak var basketButton: UIBarButtonItem!
-    public var shopItems = [Shop]()
-    public var isCell = true
+    @IBOutlet weak var emailAddressTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        mainCollectionView.delegate = self
-        mainCollectionView.dataSource = self
-        addItems()
-        toolBarSettigns()
-        cellReload.image = UIImage(named: "grid.png")
+        passwordTextField.isSecureTextEntry = true
     }
-    final private func addItems(){
-        for i in 1...4{
-        let newItemPalace = Shop(imageName: "palaceT\(i).jpg", nameOfBrand: "Palace T\(i)", price: 50*1)
-        shopItems.append(newItemPalace)}
-        for i in 1...6{
-        let newItemStone = Shop(imageName: "stoneP\(i).jpg", nameOfBrand: "Stone Island P\(i)", price: 100*2)
-           shopItems.append(newItemStone)
+    
+    @IBAction func loginOrSignUp(_ sender: UIButton) {
+        guard let email = emailAddressTextField.text else{return}
+        guard let password = passwordTextField.text else{return}
+        Auth.auth().signIn(withEmail: email,
+                           password: password) { [weak self] (result, error) in
+            guard let self = self else{return}
+            if error == nil{
+                guard let userUid = result?.user.email else{return}
+                KeychainWrapper.standard.set(userUid,
+                                             forKey: "uid")
+                self.performSegue(withIdentifier: "MenuView",
+                                  sender: nil)
+            }
+            else{
+                guard let error = error else{return}
+                let alertController = UIAlertController(title: "Message", message: error.localizedDescription, preferredStyle: .actionSheet)
+                let okeyAction = UIAlertAction(title: "Okey", style: .default, handler: nil)
+                alertController.addAction(okeyAction)
+                self.present(alertController, animated: true, completion: nil)
+            }
         }
-        let newItemStone1 = Shop(imageName: "stoneSS1.jpg", nameOfBrand: "Stone Island SS", price: 100*2)
-        for i in 1...4{
-        let newItemPalace = Shop(imageName: "palaceSS\(i).jpg", nameOfBrand: "Palace SS\(i)", price: 50*1)
-        shopItems.append(newItemPalace)
-        }
-        shopItems.append(newItemStone1)
-        for i in 1...4{
-        let newItemPalace = Shop(imageName: "palaceJ\(i).jpg", nameOfBrand: "Palace J\(i)", price: 50*1)
-        shopItems.append(newItemPalace)
-        }
-        for i in 1...2{
-        let newItemStone = Shop(imageName: "stoneJ\(i).jpg", nameOfBrand: "Stone Island J\(i)", price: 100*2)
-        shopItems.append(newItemStone)
-          
+    }
+    @IBAction func forgotPassword(_ sender: UIButton) {
+        guard let email = emailAddressTextField.text else{return}
+        Auth.auth().sendPasswordReset(withEmail: email) { (error) in
+            if error == nil {
+                let alertController = UIAlertController(title: "Message", message: "Password reset", preferredStyle: .actionSheet)
+                alertController.view.layer.cornerRadius = 0
+                alertController.view.tintColor = .lightGray
+                let okeyAction = UIAlertAction(title: "Okey", style: .default, handler: nil)
+                alertController.addAction(okeyAction)
+                self.present(alertController, animated: true, completion: nil)
+                self.navigationController?.popToRootViewController(animated: true)
+            }else{
+                guard let error = error else{return}
+                let alertController = UIAlertController(title: "Message", message: error.localizedDescription, preferredStyle: .actionSheet)
+                alertController.view.layer.cornerRadius = 0
+                alertController.view.tintColor = .lightGray
+                let okeyAction = UIAlertAction(title: "Okey", style: .default, handler: nil)
+                alertController.addAction(okeyAction)
+                self.present(alertController, animated: true, completion: nil)
+            }
         }
     }
     
-    @IBAction func cellReloadAction(_ sender: UIBarButtonItem) {
-        isCell = !isCell
-        UIView.animate(withDuration: 1) {
-            self.mainCollectionView.reloadData()
-        }
-        if isCell{
-            cellReload.image = UIImage(named: "grid.png")
-                   
-        }
-        else{
-            cellReload.image = UIImage(named: "menu.png")
-               }
-    }
-    @objc final private func tShirt(){
-        title = "T-Shirt"
-        shopItems.removeAll()
-        for i in 1...4{
-        let newItemPalace = Shop(imageName: "palaceT\(i).jpg", nameOfBrand: "Palace T\(i)", price: 50*1)
-        shopItems.append(newItemPalace)}
-        mainCollectionView.reloadData()
-    }
-    @objc final private func pants(){
-        title = "Pants"
-        shopItems.removeAll()
-        for i in 1...6{
-        let newItemStone = Shop(imageName: "stoneP\(i).jpg", nameOfBrand: "Stone Island P\(i)", price: 100*2)
-            shopItems.append(newItemStone)
-        }
-        mainCollectionView.reloadData()
-      }
-    @objc final private func sweatShirt(){
-        title = "Sweatshirts"
-        shopItems.removeAll()
-        let newItemStone1 = Shop(imageName: "stoneSS1.jpg", nameOfBrand: "Stone Island SS", price: 100*2)
-        for i in 1...4{
-        let newItemPalace = Shop(imageName: "palaceSS\(i).jpg", nameOfBrand: "Palace SS\(i)", price: 50*1)
-        shopItems.append(newItemPalace)
-        }
-        shopItems.append(newItemStone1)
-        mainCollectionView.reloadData()
-      }
-    @objc final private func jacket(){
-        title = "Jacket"
-        shopItems.removeAll()
-        for i in 1...4{
-        let newItemPalace = Shop(imageName: "palaceJ\(i).jpg", nameOfBrand: "Palace J\(i)", price: 50*1)
-        shopItems.append(newItemPalace)
-        }
-        for i in 1...2{
-        let newItemStone = Shop(imageName: "stoneJ\(i).jpg", nameOfBrand: "Stone Island J\(i)", price: 100*2)
-        shopItems.append(newItemStone)
-        }
-        mainCollectionView.reloadData()
-        }
-    @IBAction func backToMainView(_ unwind: UIStoryboardSegue) {
-        guard let vc = unwind.source as? CompletedViewController else{return}
-    }
-    final private func toolBarSettigns(){
-        var toolBarArray = [UIBarButtonItem]()
-        navigationController?.isToolbarHidden = false
-        navigationController?.toolbar.tintColor = .black
-        toolBarArray.append(UIBarButtonItem(image: UIImage(named: "tshirt.png"),
-                                           style: .done, target: self,
-                                           action: #selector(tShirt)))
-        toolBarArray.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
-                                           target: self,
-                                           action: nil))
-        toolBarArray.append(UIBarButtonItem(image: UIImage(named: "jacket.png"),
-                                           style: .done, target: self,
-                                           action: #selector(jacket)))
-        toolBarArray.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
-                                           target: self,
-                                           action: nil))
-        toolBarArray.append(UIBarButtonItem(image: UIImage(named: "pants.png"),
-                                           style: .done, target: self,
-                                           action: #selector(pants)))
-        toolBarArray.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
-                                           target: self,
-                                           action: nil))
-        let ss = UIBarButtonItem(image: UIImage(named: "sweatshirt.png"),
-                                style: .done, target: self,
-                                action:#selector(sweatShirt))
-        toolBarArray.append(ss)
-        toolbarItems = toolBarArray
-    }
-    }
+}

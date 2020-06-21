@@ -1,5 +1,7 @@
 import UIKit
 import CoreData
+import FirebaseFirestore
+import SwiftKeychainWrapper
 class ItemViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
@@ -35,7 +37,8 @@ class ItemViewController: UIViewController {
                                                 preferredStyle: .actionSheet)
         let okeyAction = UIAlertAction(title: "Nice",
                                        style: .default) { (action) in
-            self.navigationController?.popToRootViewController(animated: true)
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "MenuView") as? MenuViewController else{return}
+        self.navigationController?.popToViewController(vc, animated: true)
         }
         let segueBasketAction = UIAlertAction(title: "Basket",
                                               style: .default) {[weak self] (alert) in
@@ -48,7 +51,6 @@ class ItemViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         let item = Basket(context:context)
-       
         item.price =  Double(price ?? 0)
         item.nameOfBrand = self.nameOfBrand
         item.imageName = imageName
@@ -59,6 +61,7 @@ class ItemViewController: UIViewController {
         {
             print(error)
             }
+        // добавлять в карзину
         alertController.view.backgroundColor = #colorLiteral(red: 1, green: 0.9889082191, blue: 0.7261312769, alpha: 1)
         alertController.view.layer.cornerRadius = 0
         alertController.view.tintColor = .black
