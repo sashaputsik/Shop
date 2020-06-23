@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="T09-C4-rF5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NpJ-Aq-QVx">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -70,7 +70,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Oi-q6-6Ne" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5479.1999999999998" y="135.38230884557723"/>
+            <point key="canvasLocation" x="6418.3999999999996" y="135.38230884557723"/>
         </scene>
         <!--All Staff-->
         <scene sceneID="2f6-j4-bBd">
@@ -155,7 +155,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cPn-v6-o7b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2799.1999999999998" y="-192.05397301349328"/>
+            <point key="canvasLocation" x="3738.4000000000001" y="-192.05397301349328"/>
         </scene>
         <!--Basket-->
         <scene sceneID="Buk-w3-uro">
@@ -166,7 +166,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zhp-mq-a2S">
-                                <rect key="frame" x="0.0" y="96" width="375" height="571"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="125" id="3Ny-QP-owX" customClass="BasketTableViewCell" customModule="Shop" customModuleProvider="target">
@@ -224,7 +224,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kvZ-9a-DhU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4548" y="136.28185907046478"/>
+            <point key="canvasLocation" x="5487.1999999999998" y="136.28185907046478"/>
         </scene>
         <!--Order View Controller-->
         <scene sceneID="Nmh-9e-UEb">
@@ -297,7 +297,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GCf-NC-sZj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6383.1999999999998" y="135.38230884557723"/>
+            <point key="canvasLocation" x="7322.3999999999996" y="135.38230884557723"/>
         </scene>
         <!--Completed View Controller-->
         <scene sceneID="5yZ-H7-8GT">
@@ -355,7 +355,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="STX-jS-WTy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="fcu-pP-OXb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="7244" y="135.38230884557723"/>
+            <point key="canvasLocation" x="8183.1999999999998" y="135.38230884557723"/>
         </scene>
         <!--Item View Controller-->
         <scene sceneID="ICK-DZ-CBK">
@@ -407,7 +407,7 @@ English brand with quality. Awesome cut and beautiful eyelash. The whole peoples
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5CF-sD-Uku" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4548" y="-564.46776611694156"/>
+            <point key="canvasLocation" x="5487.1999999999998" y="-564.46776611694156"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="e8a-4j-3T6">
@@ -474,7 +474,7 @@ English brand with quality. Awesome cut and beautiful eyelash. The whole peoples
                     <connections>
                         <outlet property="emailAddressTextField" destination="orj-hh-fiJ" id="A6e-Y7-6vX"/>
                         <outlet property="passwordTextField" destination="I86-kV-EtX" id="gLr-2W-bwo"/>
-                        <segue destination="yVH-MN-dZA" kind="show" identifier="MenuView" id="gDd-9J-m6m"/>
+                        <segue destination="NpJ-Aq-QVx" kind="show" identifier="MenuView" id="gDd-9J-m6m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OIf-yD-4Vw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -549,7 +549,7 @@ English brand with quality. Awesome cut and beautiful eyelash. The whole peoples
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tcz-0W-L8E">
                                 <rect key="frame" x="16" y="339" width="343" height="222"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <mutableString key="text">1.1. This Agreement is concluded between the Buyer and the Online Store at the time of placing the order. The Buyer confirms its acceptance of the conditions established by this Agreement.
+                                <string key="text">1.1. This Agreement is concluded between the Buyer and the Online Store at the time of placing the order. The Buyer confirms its acceptance of the conditions established by this Agreement.
 
 1.2. This Agreement, as well as product information provided on the Site, is public.
 
@@ -557,7 +557,7 @@ English brand with quality. Awesome cut and beautiful eyelash. The whole peoples
 
 1.4. The online store reserves the right to amend this Agreement.
 
-1.6. This Agreement shall be considered in the form as it is published on the Site, and shall be applied and interpreted in accordance with the legislation of the Republic of Belarus.</mutableString>
+1.6. This Agreement shall be considered in the form as it is published on the Site, and shall be applied and interpreted in accordance with the legislation of the Republic of Belarus.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -570,7 +570,7 @@ English brand with quality. Awesome cut and beautiful eyelash. The whole peoples
                     <connections>
                         <outlet property="emailTextField" destination="8bJ-jc-4jx" id="o2x-MW-VJ6"/>
                         <outlet property="passwordTextField" destination="9BH-Hl-h3Y" id="zEL-W6-zQN"/>
-                        <segue destination="yVH-MN-dZA" kind="show" identifier="MenuSignUpView" id="Pmu-gm-6NP"/>
+                        <segue destination="NpJ-Aq-QVx" kind="show" identifier="MenuSignUpView" id="Pmu-gm-6NP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kw2-ok-Szx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -596,6 +596,25 @@ English brand with quality. Awesome cut and beautiful eyelash. The whole peoples
             </objects>
             <point key="canvasLocation" x="804" y="-330.58470764617692"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Wf6-UF-j8Y">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NpJ-Aq-QVx" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="g7P-Jt-3NK"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lzH-T5-Png">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="yVH-MN-dZA" kind="relationship" relationship="rootViewController" id="iPY-Qy-QHt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xg4-UK-sb7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2799.1999999999998" y="-192.05397301349328"/>
+        </scene>
     </scenes>
     <resources>
         <image name="arrow.png" width="32" height="32"/>
@@ -608,7 +627,7 @@ English brand with quality. Awesome cut and beautiful eyelash. The whole peoples
         <image name="shopping-basket-2.png" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="aKy-60-8PF"/>
         <segue reference="Pmu-gm-6NP"/>
+        <segue reference="aKy-60-8PF"/>
     </inferredMetricsTieBreakers>
 </document>

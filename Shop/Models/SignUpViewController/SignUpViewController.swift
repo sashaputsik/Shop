@@ -26,8 +26,8 @@ class SignUpViewController: UIViewController {
                     KeychainWrapper.standard.set(userUid,
                                                  forKey: "uid")
                     Firestore.firestore().collection("users").document(mail).setData(["mail":mail,
-                                                                                      "password":password,
-                                                                                      "basket": []])
+                    "password":password,
+                    "basket": []])
                     self.navigationController?.pushViewController(vc, animated: true)
                 }
                 else{

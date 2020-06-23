@@ -38,7 +38,7 @@ class ItemViewController: UIViewController {
         let okeyAction = UIAlertAction(title: "Nice",
                                        style: .default) { (action) in
         guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "MenuView") as? MenuViewController else{return}
-        self.navigationController?.popToViewController(vc, animated: true)
+        self.navigationController?.pushViewController(vc, animated: true)
         }
         let segueBasketAction = UIAlertAction(title: "Basket",
                                               style: .default) {[weak self] (alert) in
@@ -61,7 +61,9 @@ class ItemViewController: UIViewController {
         {
             print(error)
             }
-        // добавлять в карзину
+        let mail = "ss@ss.com"
+        print(item)
+        Firestore.firestore().collection("users").document(mail).setData(["basket":[item.imageName: item.price]], merge: true)
         alertController.view.backgroundColor = #colorLiteral(red: 1, green: 0.9889082191, blue: 0.7261312769, alpha: 1)
         alertController.view.layer.cornerRadius = 0
         alertController.view.tintColor = .black
